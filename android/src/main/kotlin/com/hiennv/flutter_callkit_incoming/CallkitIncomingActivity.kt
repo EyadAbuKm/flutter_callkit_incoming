@@ -79,8 +79,8 @@ class CallkitIncomingActivity : Activity() {
     private lateinit var ivAcceptCall: ImageView
     private lateinit var tvAccept: TextView
 
-    private lateinit var ivDeclineCall: ImageView
-    private lateinit var tvDecline: TextView
+//    private lateinit var ivDeclineCall: ImageView
+//    private lateinit var tvDecline: TextView
 
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -211,11 +211,11 @@ class CallkitIncomingActivity : Activity() {
         val textAccept = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, "")
         tvAccept.text = if (TextUtils.isEmpty(textAccept)) getString(R.string.text_accept) else textAccept
         val textDecline = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, "")
-        tvDecline.text = if (TextUtils.isEmpty(textDecline)) getString(R.string.text_decline) else textDecline
+//        tvDecline.text = if (TextUtils.isEmpty(textDecline)) getString(R.string.text_decline) else textDecline
 
 		try {
 			tvAccept.setTextColor(Color.parseColor(textColor))
-			tvDecline.setTextColor(Color.parseColor(textColor))
+//			tvDecline.setTextColor(Color.parseColor(textColor))
 		} catch (error: Exception) {
 		}
 
@@ -272,16 +272,16 @@ class CallkitIncomingActivity : Activity() {
 
         ivAcceptCall = findViewById(R.id.ivAcceptCall)
         tvAccept = findViewById(R.id.tvAccept)
-        ivDeclineCall = findViewById(R.id.ivDeclineCall)
-        tvDecline = findViewById(R.id.tvDecline)
+//        ivDeclineCall = findViewById(R.id.ivDeclineCall)
+//        tvDecline = findViewById(R.id.tvDecline)
         animateAcceptCall()
 
         ivAcceptCall.setOnClickListener {
             onAcceptClick()
         }
-        ivDeclineCall.setOnClickListener {
-            onDeclineClick()
-        }
+//        ivDeclineCall.setOnClickListener {
+//            onDeclineClick()
+//        }
     }
 
     private fun animateAcceptCall() {

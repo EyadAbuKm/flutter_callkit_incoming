@@ -22,8 +22,6 @@ AndroidParams _$AndroidParamsFromJson(Map<String, dynamic> json) =>
       missedCallNotificationChannelName:
           json['missedCallNotificationChannelName'] as String?,
       isShowFullLockedScreen: json['isShowFullLockedScreen'] as bool?,
-      isImportant: json['isImportant'] as bool?,
-      isBot: json['isBot'] as bool?,
     );
 
 Map<String, dynamic> _$AndroidParamsToJson(AndroidParams instance) =>
@@ -42,6 +40,4 @@ Map<String, dynamic> _$AndroidParamsToJson(AndroidParams instance) =>
       'missedCallNotificationChannelName':
           instance.missedCallNotificationChannelName,
       'isShowFullLockedScreen': instance.isShowFullLockedScreen,
-      'isImportant': instance.isImportant,
-      'isBot': instance.isBot,
     };

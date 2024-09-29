@@ -85,11 +85,6 @@ data class Data(val args: Map<String, Any?>) {
     @JsonProperty("isShowFullLockedScreen")
     var isShowFullLockedScreen: Boolean = true
 
-    @JsonProperty("isImportant")
-    var isImportant: Boolean = false
-    @JsonProperty("isBot")
-    var isBot: Boolean = false
-
     init {
         var android: Map<String, Any?>? = args["android"] as? HashMap<String, Any?>?
         android = android ?: args
@@ -106,8 +101,6 @@ data class Data(val args: Map<String, Any?>) {
             android["incomingCallNotificationChannelName"] as? String
         missedCallNotificationChannelName = android["missedCallNotificationChannelName"] as? String
         isShowFullLockedScreen = android["isShowFullLockedScreen"] as? Boolean ?: true
-        isImportant = android["isImportant"] as? Boolean ?: false
-        isBot = android["isBot"] as? Boolean ?: false
 
         val missedNotification: Map<String, Any?>? =
             args["missedCallNotification"] as? Map<String, Any?>?
@@ -221,14 +214,6 @@ data class Data(val args: Map<String, Any?>) {
             CallkitConstants.EXTRA_CALLKIT_IS_SHOW_FULL_LOCKED_SCREEN,
             isShowFullLockedScreen
         )
-        bundle.putBoolean(
-            CallkitConstants.EXTRA_CALLKIT_IS_IMPORTANT,
-            isImportant,
-        )
-        bundle.putBoolean(
-            CallkitConstants.EXTRA_CALLKIT_IS_BOT,
-            isBot,
-        )
         return bundle
     }
 
@@ -252,10 +237,6 @@ data class Data(val args: Map<String, Any?>) {
                 bundle.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, "")
             data.textDecline =
                 bundle.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, "")
-            data.isImportant =
-                bundle.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_IMPORTANT, false)
-            data.isBot =
-                bundle.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_BOT, false)
 
             data.missedNotificationId =
                 bundle.getInt(CallkitConstants.EXTRA_CALLKIT_MISSED_CALL_ID)
